@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Resultados</h1>
+    <h2>Números Ordenados</h2>
+    <p>{{ numeros_ordenados }}</p>
+
+    <h2>Estatísticas</h2>
+    <ul>
+        <li>Total de Números: {{ total_numeros }}</li>
+        <li>Amplitude: {{ amplitude }}</li>
+        <li>Quantidade de Classes: {{ quantidade_classes }}</li>
+        <li>Amplitude da Classe: {{ amplitude_classe }}</li>
+        <li>Media: {{ media }}</li>
+        <li>Variância: {{ variancia }}</li>
+        <li>Desvio Padrão: {{ desvio_padrao }}</li>
+        <li>Moda: {{ moda }}</li>
+        <li>Mediana: {{ mediana }}</li>
+    </ul>
+
+    <h2>Classes</h2>
+    <table border="1">
+        <tr>
+            <th>Classe</th>
+            <th>Limite Inferior</th>
+            <th>Limite Superior</th>
+            <th>Ponto Médio</th>
+            <th>Frequência</th>
+            <th>Frequência Acumulada</th>
+            <th>Freq * Ponto Médio</th>
+        </tr>
+        {% for i, (limite, ponto_medio, frequencia, frequencia_acumulada) in enumerate(zip(limites_classes, pontos_medios_classes, contagem_por_classe, frequencia_acumulada_por_classe)) %}
+        <tr>
+            <td>{{ i + 1 }}</td>
+            <td>{{ limite[0] }}</td>
+            <td>{{ limite[1] }}</td>
+            <td>{{ ponto_medio }}</td>
+            <td>{{ frequencia }}</td>
+            <td>{{ frequencia_acumulada }}</td>
+            <td>{{ frequencia_por_ponto_medio[i] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('download_file', filename=output_filename) }}">Baixar arquivo Excel</a>
+</body>
+</html>
