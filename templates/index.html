@@ -1,17 +1,27 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estatísticas de Classes</title>
+    <title>Flask App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Insira os Números</h1>
-    <form action="/" method="post">
-        <label for="numeros">Números (separados por espaço):</label><br>
-        <textarea name="numeros" id="numeros" rows="4" cols="50" required></textarea><br>
-        <button type="submit">Enviar</button>
-    </form>
+    <div class="container">
+        <h1>Ordenação e estatística</h1>
+        <form method="post">
+            <label for="numeros">Digite os números separados por espaço:</label><br>
+            <input type="text" id="numeros" name="numeros" required><br>
+            <input type="submit" value="Calcular">
+        </form>
+        {% if numeros_ordenados %}
+            <div class="results">
+                <h2>Resultados:</h2>
+                <!-- Tabela de resultados aqui -->
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
