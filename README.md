@@ -11,10 +11,8 @@ Este repositório contém uma ferramenta para análise estatística de dados.
 ## Como Usar
 
 1. Abra a ferramenta.
-2. Coloque os dados que deseja analiser no arquivo txt.
-3. Selecione as métricas estatísticas desejadas no ajustar_amplitude_classes.py.
+2. Coloque os dados que deseja analiser no input da aba principal e clique em calcular.
 4. Abra o arquivo excell xlxs com todas métricas atualizadas.
-5. Às vezes, o arquivo xlxs é corrompido, delete o arquivo de seu diretório e tente novamente.
 
 ## Contribuição
 
